@@ -119,6 +119,7 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
+settings.py
 
 # Flask stuff:
 instance/
@@ -152,3 +153,9 @@ ipython_config.py
 # pipenv
 Pipfile.lock
 Pipfile
+/static
+/media
+venv
+
+*env
+
