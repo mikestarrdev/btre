@@ -1,3 +1,4 @@
+from django.contrib.messages import constants as messages
 """
 Django settings for btre project.
 
@@ -35,12 +36,15 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+
 ]
 
 MIDDLEWARE = [
@@ -82,7 +86,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'btredb',
         'USER': 'postgres',
-        'PASSWORD': os.environ.get('DB_PASSWORD')
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': 'localhost'
     }
 }
 
@@ -131,3 +136,13 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Media Folder settings
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# Messages
+
+MESSAGE_TAGS = {
+  messages.ERROR: 'danger',
+}
